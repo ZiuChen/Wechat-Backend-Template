@@ -2,12 +2,19 @@
  * 自定义菜单
  */
 
+const { url } = require('../config')
+
 module.exports = {
   button: [
     {
-      type: 'click',
-      name: '今日歌曲',
-      key: 'V1001_TODAY_MUSIC'
+      type: 'view',
+      name: '电影合集',
+      url: url + '/movie'
+    },
+    {
+      type: 'view',
+      name: '语音识别',
+      url: url + '/search'
     },
     {
       name: '菜单一',
