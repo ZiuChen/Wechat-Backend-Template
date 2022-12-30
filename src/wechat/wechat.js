@@ -165,12 +165,4 @@ class Wechat {
   }
 }
 
-// module.exports = Wechat
-
-const test = async () => {
-  const w = new Wechat()
-  const res = await w.getTicket()
-  console.log(res)
-}
-
-test()
+module.exports = Wechat
