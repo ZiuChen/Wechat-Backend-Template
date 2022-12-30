@@ -1,4 +1,5 @@
 const xml2js = require('xml2js')
+const { readFile, writeFile } = require('fs')
 
 module.exports = {
   // get user data
@@ -48,5 +49,30 @@ module.exports = {
     }
 
     return message
+  },
+
+  async writeFileAsync(path, data) {
+    return new Promise((resolve, reject) => {
+      writeFile(path, data, (err) => {
+        if (!err) {
+          console.log('File saved.')
+          resolve()
+        } else {
+          reject('File save failed.')
+        }
+      })
+    })
+  },
+
+  async readFileAsync(path) {
+    return new Promise((resolve, reject) => {
+      readFile(path, (err, data) => {
+        if (!err) {
+          resolve(data)
+        } else {
+          reject('Read file failed.')
+        }
+      })
+    })
   }
 }
