@@ -1,5 +1,5 @@
 const express = require('express')
-const auth = require('./src/wechat/auth')
+const auth = require('./src/reply')
 const app = express()
 
 const Wechat = require('./src/wechat/wechat')

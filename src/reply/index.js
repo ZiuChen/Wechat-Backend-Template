@@ -2,7 +2,9 @@ const sha1 = require('sha1')
 
 const config = require('../config')
 const { getUserDataAsync, parseXMLAsync, formatMessage } = require('../utils')
-const msgHandler = require('./msgHandler')
+
+const template = require('./template')
+const reply = require('./reply')
 
 module.exports = () => {
   return async (req, res, next) => {
@@ -37,7 +39,10 @@ module.exports = () => {
       console.log(JSON.stringify(message))
 
       // handle message
-      await msgHandler({ req, res, message })
+      const options = reply(message)
+      console.log(options)
+
+      res.send(template(options))
     } else {
       res.end('Error')
     }
